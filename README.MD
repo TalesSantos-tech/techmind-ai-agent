@@ -1,20 +1,31 @@
-# 🖥️ TechMind - AI PC Diagnostic Agent
+# 🧠 TechMind AI Agent
 
-An intelligent PC diagnostic agent developed in Python using introductory AI Agent concepts.
-
-## 📌 About the Project
-
-TechMind is a simple intelligent diagnostic system capable of analyzing computer symptoms informed by the user and generating:
-
-- Diagnostic recommendation
-- Problem explanation
-- Basic troubleshooting suggestions
-
-The project was developed for an introductory Artificial Intelligence / Computational Logic course.
+An intelligent PC diagnostic agent developed in Python using introductory AI Agent concepts, automation workflows, and modern software architecture principles.
 
 ---
 
-## 🚀 Features
+# 📌 About the Project
+
+TechMind is an intelligent diagnostic system capable of analyzing computer symptoms informed by the user and generating:
+
+- Diagnostic recommendations
+- Problem explanations
+- Basic troubleshooting suggestions
+- Diagnostic history and metrics
+- Automated reports and visual analytics
+
+The project was developed for an introductory Artificial Intelligence / Computational Logic course and evolved into a complete portfolio application containing:
+
+- CLI system
+- Desktop GUI
+- Web version
+- Dashboard analytics
+- Automated tests
+- Database persistence
+
+---
+
+# 🚀 Features
 
 ✅ CPU temperature analysis  
 ✅ RAM usage analysis  
@@ -22,27 +33,151 @@ The project was developed for an introductory Artificial Intelligence / Computat
 ✅ Possible malware indication  
 ✅ Automatic explanation of diagnosis  
 ✅ Sequential decision workflow  
+✅ Interactive terminal menu  
+✅ Colored terminal interface  
+✅ Loading simulation  
+✅ Diagnostic history system  
+✅ Metrics tracking  
+✅ Dashboard with charts  
+✅ Desktop GUI with Tkinter  
+✅ Web version using Flask  
+✅ SQLite database integration  
+✅ User registration system  
+✅ Automated tests with pytest  
+✅ Jupyter Notebook documentation  
 
 ---
 
-## 🧠 AI Agent Concepts Applied
+# 🧠 AI Agent Concepts Applied
 
-This project uses introductory AI Agent patterns:
+This project applies several introductory AI Agent patterns:
 
 - Sequential Workflow
 - Routing
+- Decision Systems
 - Tool Use
 - Human-in-the-loop
+- Modular Architecture
+- Persistent State
+- Data Logging
 
 ---
 
-## 🏗️ Architecture
+# 🏗️ System Architecture
 
 ![Architecture](docs/arquitetura.png)
 
 ---
 
-## ✅ Automated Tests
+# 🖥️ Terminal Interface
+
+![Menu](screenshots/menu.png)
+
+---
+
+# 🖼️ Desktop GUI (Tkinter)
+
+![GUI](screenshots/interface_grafica.png)
+
+---
+
+# 🌐 Web Version (Flask)
+
+![Web](screenshots/web_interface.png)
+
+---
+
+# 📊 Metrics Dashboard
+
+![Dashboard](dashboard/grafico_metricas.png)
+
+---
+
+# 🖼️ Mockup
+
+![Mockup](docs/mockup.png)
+
+---
+
+# 🏗️ Project Structure
+
+```text
+techmind-ai-agent/
+│
+├── app.py
+├── banco.py
+├── diagnostico.py
+├── interface.py
+├── main.py
+├── pytest.ini
+├── requirements.txt
+│
+├── database/
+│   └── techmind.db
+│
+├── dashboard/
+│   ├── graficos.py
+│   └── grafico_metricas.png
+│
+├── docs/
+│   ├── arquitetura.png
+│   └── mockup.png
+│
+├── gui/
+│   └── interface_grafica.py
+│
+├── logs/
+│   ├── historico.txt
+│   └── metricas.txt
+│
+├── screenshots/
+│   ├── menu.png
+│   ├── interface_grafica.png
+│   └── web_interface.png
+│
+├── static/
+│   └── style.css
+│
+├── templates/
+│   ├── index.html
+│   └── cadastro.html
+│
+├── testes/
+│   ├── __init__.py
+│   └── test_diagnostico.py
+│
+└── techmind_ai_agent.ipynb
+```
+
+---
+
+# ⚙️ Technologies Used
+
+- Python
+- Flask
+- Tkinter
+- SQLite
+- Matplotlib
+- Pytest
+- Jupyter Notebook
+- HTML5
+- CSS3
+
+---
+
+# 🎨 Visual Features
+
+- Colored terminal interface
+- Interactive menu system
+- Loading simulation
+- Dashboard charts
+- Desktop graphical interface
+- Responsive web layout
+- User-friendly workflow
+
+---
+
+# 🧪 Automated Tests
 
 The project includes automated tests using pytest.
 
@@ -52,106 +187,93 @@ Run tests:
 pytest
 ```
 
----
-
-## 🖥️ Graphical Interface
-
-![GUI](screenshots/interface_grafica.png)
-
----
-
-## 📸 Interface
-
-![Menu](screenshots/menu.png)
-
----
-
-## 📊 Metrics Dashboard
-
-![Dashboard](dashboard/grafico_metricas.png)
-
----
-
-## 🖼️ Mockup
-
-![Mockup](docs/mockup.png)
-
----
-
-## 🏗️ Project Structure
+Expected result:
 
 ```text
-techmind-ai-agent/
-│
-├── app.py
-├── diagnostico.py
-├── interface.py
-├── main.py
-│
-├── database/
-
-├── templates/
-│
-├── static/
-│
-├── gui/
-├── dashboard/
-├── logs/
-├── screenshots/
-└── testes/
+4 passed
 ```
 
-## ⚙️ Technologies
-
-- Python
-- Logic Programming
-- Decision Systems
-- AI Agent Concepts
-
 ---
 
-## 🎨 Visual Features
+# 📈 Dashboard Analytics
 
-- Colored terminal interface
-- Interactive menu
-- Loading simulation
-- User-friendly diagnostic system
+The system automatically generates graphical metrics from stored diagnostics, including:
 
----
+- Total diagnostics
+- Problems detected
+- Stable systems
+- Diagnostic category distribution
 
-## 🌐 Web Version
-
-![Web](screenshots/web_interface.png)
-
----
-
-## ▶️ Running the Project
-
-Clone the repository:
+Generate dashboard:
 
 ```bash
-git clone https://github.com/Seu-Usuario/techmind-ai-agent.git
+python dashboard/graficos.py
 ```
 
-Enter the folder:
+---
+
+# 💾 Database Integration
+
+The project uses SQLite.
+
+Features:
+- User registration
+- Persistent diagnostic storage
+- Structured database architecture
+
+Database file:
+
+```text
+database/techmind.db
+```
+
+---
+
+# 🌐 Running the Web Version
+
+Install dependencies:
 
 ```bash
-cd techmind-ai-agent
+pip install flask matplotlib colorama pytest
 ```
 
-Run:
+Run the application:
+
+```bash
+python app.py
+```
+
+Open in browser:
+
+```text
+http://127.0.0.1:5000
+```
+
+---
+
+# 🖥️ Running the Desktop GUI
+
+```bash
+python gui/interface_grafica.py
+```
+
+---
+
+# ▶️ Running the Terminal Version
 
 ```bash
 python main.py
 ```
 
-## 🧪 Example Scenario
+---
+
+# 🧪 Example Diagnostic Scenario
 
 Input:
 
 ```text
 Computer slow? sim
-CPU temperature: 90
+CPU temperature: 92
 RAM usage: 45
 Frequent crashes? nao
 ```
@@ -159,20 +281,57 @@ Frequent crashes? nao
 Output:
 
 ```text
-Diagnosis: Superaquecimento
+Diagnosis:
+Superaquecimento
 
 Explanation:
 CPU temperature is above the recommended range.
 ```
 
-## 📈 Future Improvements
+---
+
+# 📓 Notebook Version
+
+The project also includes a Jupyter Notebook version for academic presentation and experimentation:
+
+```text
+techmind_ai_agent.ipynb
+```
+
+The notebook contains:
+- Project explanation
+- AI concepts
+- Code implementation
+- Testing scenarios
+- Metrics analysis
+
+---
+
+# 📈 Future Improvements
 
 - Real hardware monitoring
-- Graphical interface
-- Diagnostic history
-- More intelligent recommendations
-- Linux/Windows integration
+- REST API
+- Docker support
+- Online deployment
+- User authentication system
+- PDF report export
+- Real-time dashboard
+- Machine Learning integration
+- Linux/Windows hardware integration
+- Cloud database support
 
-## 👨‍💻 Author
+---
+
+# 👨‍💻 Author
 
 Developed by Tales Santos
+
+---
+
+# ⭐ Project Status
+
+✅ Active Development  
+✅ Portfolio Ready  
+✅ Academic Ready  
+✅ Beginner-Friendly Architecture  
+✅ Modular and Scalable System
