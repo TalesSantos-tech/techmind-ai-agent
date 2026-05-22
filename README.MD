@@ -63,6 +63,17 @@ This project applies several introductory AI Agent patterns:
 
 ---
 
+## AI Agent Patterns Used
+
+| Pattern | Application |
+|---|---|
+| Sequential Workflow | Sequential diagnostic flow |
+| Routing | Different decision paths based on symptoms |
+| Tool Use | Functions, metrics, logs and database |
+| Human-in-the-loop | User input and validation |
+
+---
+
 # 🏗️ System Architecture
 
 ![Architecture](docs/arquitetura.png)
