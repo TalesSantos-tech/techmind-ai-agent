@@ -127,6 +127,8 @@ techmind-ai-agent/
 │   └── techmind.db
 │
 ├── dashboard/
+│   ├── testes.md
+│   ├── metricas.md
 │   ├── graficos.py
 │   └── grafico_metricas.png
 │
