@@ -76,6 +76,8 @@ pytest
 
 ![Mockup](docs/mockup.png)
 
+---
+
 ## 🏗️ Project Structure
 
 ```text
