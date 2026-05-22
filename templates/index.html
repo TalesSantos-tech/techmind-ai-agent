@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>TechMind AI</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>TECHMIND - AI PC DIAGNOSTIC</h1>
+
+        <form method="POST">
+
+            <label>
+                Computador está lento?
+            </label>
+
+            <input
+                type="text"
+                name="lentidao"
+                required
+            >
+
+            <label>
+                Temperatura da CPU
+            </label>
+
+            <input
+                type="number"
+                name="temperatura"
+                required
+            >
+
+            <label>
+                Uso de RAM (%)
+            </label>
+
+            <input
+                type="number"
+                name="ram"
+                required
+            >
+
+            <label>
+                Há travamentos?
+            </label>
+
+            <input
+                type="text"
+                name="travamentos"
+                required
+            >
+
+            <button type="submit">
+                ANALISAR SISTEMA
+            </button>
+
+        </form>
+
+        {% if resultado %}
+
+            <div class="resultado">
+
+                <h2>Resultado:</h2>
+
+                <p>{{ resultado }}</p>
+
+                <h2>Explicação:</h2>
+
+                <p>{{ explicacao }}</p>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+</html>

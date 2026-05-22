@@ -115,6 +115,12 @@ techmind-ai-agent/
 
 ---
 
+## 🌐 Web Version
+
+![Web](screenshots/web_interface.png)
+
+---
+
 ## ▶️ Running the Project
 
 Clone the repository:
