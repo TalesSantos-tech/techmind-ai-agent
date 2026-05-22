@@ -10,3 +10,35 @@ Isso pode causar:
         
 ==================================================
 
+==================================================
+Data: 22/05/2026 19:08:46
+Resultado: Sistema funcionando normalmente
+Explicação: 
+Nenhum problema crítico foi detectado.
+O sistema aparenta estar estável.
+        
+==================================================
+
+==================================================
+Data: 22/05/2026 19:09:04
+Resultado: Superaquecimento
+Explicação: 
+A CPU está operando acima da temperatura ideal.
+Isso pode causar:
+- queda de desempenho
+- desligamentos
+- danos ao hardware
+        
+==================================================
+
+==================================================
+Data: 22/05/2026 19:09:25
+Resultado: Possível malware
+Explicação: 
+Travamentos frequentes podem indicar:
+- vírus
+- malware
+- processos maliciosos
+        
+==================================================
+

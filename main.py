@@ -27,6 +27,16 @@ def salvar_historico(resultado, explicacao):
         arquivo.write(f"Explicação: {explicacao}\n")
         arquivo.write("=" * 50 + "\n\n")
 
+def salvar_metricas(resultado):
+
+    with open(
+        "logs/metricas.txt",
+        "a",
+        encoding="utf-8"
+    ) as arquivo:
+
+        arquivo.write(resultado + "\n")
+
 while True:
 
     print(Fore.CYAN + "\n" + "=" * 50)
@@ -36,8 +46,8 @@ while True:
     print(Fore.GREEN + "\n1 - Iniciar diagnóstico")
     print(Fore.YELLOW + "2 - Sobre o sistema")
     print(Fore.MAGENTA + "3 - Ver histórico")
-    print(Fore.RED + "4 - Sair")
-
+    print(Fore.BLUE + "4 - Ver métricas")
+    print(Fore.RED + "5 - Sair")
     opcao = input("\nEscolha uma opção: ")
 
     # DIAGNÓSTICO
@@ -67,6 +77,7 @@ while True:
         print(explicacao)
 
         salvar_historico(resultado, explicacao)
+        salvar_metricas(resultado)
 
         print("=" * 50)
 
@@ -109,9 +120,57 @@ nos sintomas informados pelo usuário.
 
         except FileNotFoundError:
             print("\nArquivo de histórico não encontrado.")
-            
-    #Sair
+
+        # MÉTRICAS
     elif opcao == "4":
+
+        try:
+
+            with open(
+                "logs/metricas.txt",
+                "r",
+                encoding="utf-8"
+            ) as arquivo:
+
+                linhas = arquivo.readlines()
+
+                total = len(linhas)
+
+                normais = linhas.count(
+                    "Sistema funcionando normalmente\n"
+                )
+
+                problemas = total - normais
+
+                taxa = (
+                    (total / total) * 100
+                    if total > 0 else 0
+                )
+
+                print(Fore.BLUE + "\n" + "=" * 50)
+                print(Fore.BLUE + "              MÉTRICAS")
+                print(Fore.BLUE + "=" * 50)
+
+                print(f"\nTotal de diagnósticos: {total}")
+
+                print(
+                    f"Problemas detectados: {problemas}"
+                )
+
+                print(
+                    f"Sistemas normais: {normais}"
+                )
+
+                print(
+                    f"Taxa de funcionamento: {taxa:.0f}%"
+                )
+
+        except FileNotFoundError:
+
+            print("\nArquivo de métricas não encontrado.")
+            
+    # Sair
+    elif opcao == "5":
 
         print(Fore.RED + "\nEncerrando sistema...")
         break
