@@ -42,6 +42,18 @@ This project uses introductory AI Agent patterns:
 
 ---
 
+## ✅ Automated Tests
+
+The project includes automated tests using pytest.
+
+Run tests:
+
+```bash
+pytest
+```
+
+---
+
 ## 📸 Interface
 
 ![Menu](screenshots/menu.png)
