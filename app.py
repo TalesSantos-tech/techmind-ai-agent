@@ -1,3 +1,4 @@
+from banco import conectar, criar_tabelas
 from flask import Flask, render_template, request
 
 from diagnostico import (
@@ -6,6 +7,7 @@ from diagnostico import (
 )
 
 app = Flask(__name__)
+criar_tabelas()
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -36,6 +38,36 @@ def index():
         explicacao=explicacao
     )
 
+@app.route("/cadastro", methods=["GET", "POST"])
+def cadastro():
+
+    if request.method == "POST":
+
+        nome = request.form["nome"]
+        email = request.form["email"]
+        senha = request.form["senha"]
+
+        conexao = conectar()
+
+        cursor = conexao.cursor()
+
+        cursor.execute(
+            """
+            INSERT INTO usuarios
+            (nome, email, senha)
+
+            VALUES (?, ?, ?)
+            """,
+            (nome, email, senha)
+        )
+
+        conexao.commit()
+
+        conexao.close()
+
+        return "Usuário cadastrado com sucesso!"
+
+    return render_template("cadastro.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

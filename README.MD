@@ -86,6 +86,8 @@ techmind-ai-agent/
 ├── interface.py
 ├── main.py
 │
+├── database/
+
 ├── templates/
 │
 ├── static/
