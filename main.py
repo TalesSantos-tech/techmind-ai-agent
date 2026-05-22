@@ -1,13 +1,31 @@
-from colorama import Fore, Style, init
-import time
-
-init(autoreset=True)
-
 from interface import entrada_usuario
 from diagnostico import (
     analisar_sistema,
     explicar_resultado
 )
+
+from colorama import Fore, Style, init
+from datetime import datetime
+import time
+
+init(autoreset=True)
+
+
+def salvar_historico(resultado, explicacao):
+
+    data = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+
+    with open(
+        "logs/historico.txt",
+        "a",
+        encoding="utf-8"
+    ) as arquivo:
+
+        arquivo.write("=" * 50 + "\n")
+        arquivo.write(f"Data: {data}\n")
+        arquivo.write(f"Resultado: {resultado}\n")
+        arquivo.write(f"Explicação: {explicacao}\n")
+        arquivo.write("=" * 50 + "\n\n")
 
 while True:
 
@@ -17,7 +35,8 @@ while True:
 
     print(Fore.GREEN + "\n1 - Iniciar diagnóstico")
     print(Fore.YELLOW + "2 - Sobre o sistema")
-    print(Fore.RED + "3 - Sair")
+    print(Fore.MAGENTA + "3 - Ver histórico")
+    print(Fore.RED + "4 - Sair")
 
     opcao = input("\nEscolha uma opção: ")
 
@@ -47,6 +66,8 @@ while True:
         print(Fore.YELLOW + "\nExplicação:")
         print(explicacao)
 
+        salvar_historico(resultado, explicacao)
+
         print("=" * 50)
 
     # SOBRE
@@ -63,8 +84,34 @@ problemas em computadores com base
 nos sintomas informados pelo usuário.
         """)
 
-    # SAIR
+    # HISTÓRICO
     elif opcao == "3":
+
+        print(Fore.MAGENTA + "\n" + "=" * 50)
+        print(Fore.MAGENTA + "            HISTÓRICO")
+        print(Fore.MAGENTA + "=" * 50)
+
+        try:
+
+            with open(
+                "logs/historico.txt",
+                "r",
+                encoding="utf-8"
+            ) as arquivo:
+
+                conteudo = arquivo.read()
+
+                if conteudo.strip() == "":
+                    print("\nNenhum histórico encontrado.")
+
+                else:
+                    print(conteudo)
+
+        except FileNotFoundError:
+            print("\nArquivo de histórico não encontrado.")
+            
+    #Sair
+    elif opcao == "4":
 
         print(Fore.RED + "\nEncerrando sistema...")
         break

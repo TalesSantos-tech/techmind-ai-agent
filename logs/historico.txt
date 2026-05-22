@@ -1,0 +1,12 @@
+==================================================
+Data: 22/05/2026 18:57:26
+Resultado: Uso excessivo de RAM
+Explicação: 
+O sistema identificou alto consumo de memória RAM.
+Isso pode causar:
+- lentidão
+- travamentos
+- baixo desempenho
+        
+==================================================
+
