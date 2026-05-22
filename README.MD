@@ -74,6 +74,17 @@ techmind-ai-agent/
 - Decision Systems
 - AI Agent Concepts
 
+---
+
+## 🎨 Visual Features
+
+- Colored terminal interface
+- Interactive menu
+- Loading simulation
+- User-friendly diagnostic system
+
+---
+
 ## ▶️ Running the Project
 
 Clone the repository:

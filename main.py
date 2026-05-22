@@ -1,3 +1,8 @@
+from colorama import Fore, Style, init
+import time
+
+init(autoreset=True)
+
 from interface import entrada_usuario
 from diagnostico import (
     analisar_sistema,
@@ -6,13 +11,13 @@ from diagnostico import (
 
 while True:
 
-    print("\n" + "=" * 50)
-    print("         TECHMIND - MENU PRINCIPAL")
-    print("=" * 50)
+    print(Fore.CYAN + "\n" + "=" * 50)
+    print(Fore.CYAN + "         TECHMIND - MENU PRINCIPAL")
+    print(Fore.CYAN + "=" * 50)
 
-    print("\n1 - Iniciar diagnóstico")
-    print("2 - Sobre o sistema")
-    print("3 - Sair")
+    print(Fore.GREEN + "\n1 - Iniciar diagnóstico")
+    print(Fore.YELLOW + "2 - Sobre o sistema")
+    print(Fore.RED + "3 - Sair")
 
     opcao = input("\nEscolha uma opção: ")
 
@@ -20,6 +25,9 @@ while True:
     if opcao == "1":
 
         lentidao, temperatura, ram, travamentos = entrada_usuario()
+
+        print(Fore.BLUE + "\nAnalisando sistema...")
+        time.sleep(2)
 
         resultado = analisar_sistema(
             lentidao,
@@ -34,9 +42,9 @@ while True:
         print("           DIAGNÓSTICO FINAL")
         print("=" * 50)
 
-        print(f"\nResultado: {resultado}")
+        print(Fore.GREEN + f"\nResultado: {resultado}")
 
-        print("\nExplicação:")
+        print(Fore.YELLOW + "\nExplicação:")
         print(explicacao)
 
         print("=" * 50)
@@ -58,7 +66,7 @@ nos sintomas informados pelo usuário.
     # SAIR
     elif opcao == "3":
 
-        print("\nEncerrando sistema...")
+        print(Fore.RED + "\nEncerrando sistema...")
         break
 
     # OPÇÃO INVÁLIDA
