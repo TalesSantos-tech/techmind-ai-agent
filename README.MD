@@ -81,12 +81,20 @@ pytest
 ```text
 techmind-ai-agent/
 │
-├── main.py
+├── app.py
 ├── diagnostico.py
 ├── interface.py
-├── README.md
+├── main.py
 │
-├── docs/
+├── templates/
+│   └── index.html
+│
+├── static/
+│   └── style.css
+│
+├── gui/
+├── dashboard/
+├── logs/
 ├── screenshots/
 └── testes/
 ```
