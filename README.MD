@@ -35,9 +35,16 @@ This project uses introductory AI Agent patterns:
 - Human-in-the-loop
 
 ---
+
 ## 🏗️ Architecture
 
 ![Architecture](docs/arquitetura.png)
+
+---
+
+## 📸 Interface
+
+![Menu](screenshots/menu.png)
 
 ---
 
