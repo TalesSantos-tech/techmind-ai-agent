@@ -1,3 +1,4 @@
 Sistema funcionando normalmente
 Superaquecimento
 Possível malware
+Superaquecimento

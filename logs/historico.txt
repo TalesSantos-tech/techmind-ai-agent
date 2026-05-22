@@ -42,3 +42,15 @@ Travamentos frequentes podem indicar:
         
 ==================================================
 
+==================================================
+Data: 22/05/2026 19:24:32
+Resultado: Superaquecimento
+Explicação: 
+A CPU está operando acima da temperatura ideal.
+Isso pode causar:
+- queda de desempenho
+- desligamentos
+- danos ao hardware
+        
+==================================================
+
