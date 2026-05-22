@@ -87,10 +87,8 @@ techmind-ai-agent/
 ├── main.py
 │
 ├── templates/
-│   └── index.html
 │
 ├── static/
-│   └── style.css
 │
 ├── gui/
 ├── dashboard/
