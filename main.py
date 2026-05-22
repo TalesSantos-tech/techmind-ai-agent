@@ -4,8 +4,10 @@ from diagnostico import (
     explicar_resultado
 )
 
+# Entrada
 lentidao, temperatura, ram, travamentos = entrada_usuario()
 
+# Processamento
 resultado = analisar_sistema(
     lentidao,
     temperatura,
@@ -13,10 +15,17 @@ resultado = analisar_sistema(
     travamentos
 )
 
+# Explicação
 explicacao = explicar_resultado(resultado)
 
-print("\nDiagnóstico Final:")
-print(resultado)
+# Saída
+print("\n" + "=" * 50)
+print("           DIAGNÓSTICO FINAL")
+print("=" * 50)
+
+print(f"\nResultado: {resultado}")
 
 print("\nExplicação:")
 print(explicacao)
+
+print("=" * 50)

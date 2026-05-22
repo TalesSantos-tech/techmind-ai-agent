@@ -1,10 +1,21 @@
 def entrada_usuario():
 
-    print("=== TECHMIND ===")
+    print("=" * 50)
+    print("      TECHMIND - AI PC DIAGNOSTIC")
+    print("=" * 50)
 
-    lentidao = input("O computador está lento? ")
-    temperatura = int(input("Temperatura da CPU: "))
-    ram = int(input("Uso de RAM (%): "))
-    travamentos = input("Há travamentos? ")
+    lentidao = input("\nO computador está lento? (sim/nao): ")
+
+    temperatura = int(
+        input("Temperatura média da CPU (°C): ")
+    )
+
+    ram = int(
+        input("Uso de RAM (%): ")
+    )
+
+    travamentos = input(
+        "Há travamentos frequentes? (sim/nao): "
+    )
 
     return lentidao, temperatura, ram, travamentos

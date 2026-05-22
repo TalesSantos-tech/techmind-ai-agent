@@ -21,19 +21,45 @@ def explicar_resultado(resultado):
     explicacoes = {
 
         "Superaquecimento":
-        "A CPU está acima da temperatura ideal.",
+        """
+A CPU está operando acima da temperatura ideal.
+Isso pode causar:
+- queda de desempenho
+- desligamentos
+- danos ao hardware
+        """,
 
         "Uso excessivo de RAM":
-        "O consumo de memória está muito alto.",
+        """
+O sistema identificou alto consumo de memória RAM.
+Isso pode causar:
+- lentidão
+- travamentos
+- baixo desempenho
+        """,
 
         "Possível malware":
-        "Travamentos podem indicar vírus.",
+        """
+Travamentos frequentes podem indicar:
+- vírus
+- malware
+- processos maliciosos
+        """,
 
         "Possível gargalo de armazenamento":
-        "HD lento pode causar lentidão.",
+        """
+O armazenamento pode estar limitando o desempenho.
+Possíveis causas:
+- HD antigo
+- pouco espaço
+- baixa velocidade de leitura
+        """,
 
         "Sistema funcionando normalmente":
-        "Nenhum problema crítico encontrado."
+        """
+Nenhum problema crítico foi detectado.
+O sistema aparenta estar estável.
+        """
     }
 
     return explicacoes[resultado]
