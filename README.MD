@@ -60,6 +60,12 @@ pytest
 
 ---
 
+## 📊 Metrics Dashboard
+
+![Dashboard](dashboard/grafico_metricas.png)
+
+---
+
 ## 🖼️ Mockup
 
 ![Mockup](docs/mockup.png)
