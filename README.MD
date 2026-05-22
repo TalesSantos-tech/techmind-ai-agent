@@ -54,6 +54,12 @@ pytest
 
 ---
 
+## 🖥️ Graphical Interface
+
+![GUI](screenshots/interface_grafica.png)
+
+---
+
 ## 📸 Interface
 
 ![Menu](screenshots/menu.png)
