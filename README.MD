@@ -323,7 +323,7 @@ The notebook contains:
 ## Installation
 
 ```bash
-git clone https://github.com/seu-usuario/techmind-ai-agent.git
+git clone https://github.com/TalesSantos-tech/techmind-ai-agent.git
 
 cd techmind-ai-agent
 
