@@ -320,6 +320,22 @@ The notebook contains:
 
 ---
 
+## Installation
+
+```bash
+git clone https://github.com/seu-usuario/techmind-ai-agent.git
+
+cd techmind-ai-agent
+
+python -m venv venv
+
+venv\Scripts\activate
+
+pip install -r requirements.txt
+```
+
+---
+
 # 📈 Future Improvements
 
 - Real hardware monitoring

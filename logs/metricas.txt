@@ -2,3 +2,4 @@ Sistema funcionando normalmente
 Superaquecimento
 Possível malware
 Superaquecimento
+Uso excessivo de RAM
