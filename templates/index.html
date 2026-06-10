@@ -2,115 +2,165 @@
 <html lang="pt-br">
 
 <head>
-
     <meta charset="UTF-8">
-
     <title>TechMind AI</title>
 
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='style.css') }}"
-    >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        body {
+            background: #0f172a;
+            color: #e2e8f0;
+        }
+
+        .container {
+            max-width: 1000px;
+        }
+
+        .hero-title {
+            text-align: center;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+
+        .card {
+            background: #1e293b;
+            border: none;
+            color: white;
+            border-radius: 12px;
+        }
+
+        input {
+            background: #0b1220 !important;
+            border: 1px solid #334155 !important;
+            color: white !important;
+        }
+
+        input:focus {
+            box-shadow: none !important;
+            border-color: #38bdf8 !important;
+        }
+
+        label {
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        .btn-tech {
+            background: #38bdf8;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            font-weight: bold;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-tech:hover {
+            background: #0ea5e9;
+        }
+
+        .resultado {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+    </style>
 </head>
 
 <body>
-    
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
 
             <a class="navbar-brand" href="/">
-            🧠 TechMind
+                🧠 TechMind
             </a>
 
-            <div class="navbar-nav">
-
-                <a class="nav-link" href="/">
-                Diagnóstico
-                </a>
-
-                <a class="nav-link" href="/historico">
-                Histórico
-                </a>
-
-                <a class="nav-link" href="/dashboard">
-                Dashboard
-                </a>
-
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="/">Diagnóstico</a>
+                <a class="nav-link" href="/historico">Histórico</a>
+                <a class="nav-link" href="/dashboard">Dashboard</a>
             </div>
 
         </div>
     </nav>
 
+    <!-- CONTEÚDO -->
     <div class="container">
 
-        <h1>TECHMIND - AI PC DIAGNOSTIC</h1>
+        <h1 class="hero-title">TECHMIND - AI PC DIAGNOSTIC</h1>
 
-        <form method="POST">
+        <!-- CARDS SISTEMA -->
+        <div class="row mt-4 g-3">
 
-            <label>
-                Computador está lento?
-            </label>
+            <div class="col-md-4">
+                <div class="card text-center shadow">
+                    <div class="card-body">
+                        <h5>CPU</h5>
+                        <h2>{{ cpu }}%</h2>
+                    </div>
+                </div>
+            </div>
 
-            <input
-                type="text"
-                name="lentidao"
-                required
-            >
+            <div class="col-md-4">
+                <div class="card text-center shadow">
+                    <div class="card-body">
+                        <h5>RAM</h5>
+                        <h2>{{ ram_real }}%</h2>
+                    </div>
+                </div>
+            </div>
 
-            <label>
-                Temperatura da CPU
-            </label>
+            <div class="col-md-4">
+                <div class="card text-center shadow">
+                    <div class="card-body">
+                        <h5>Temperatura</h5>
+                        <h2>{{ temperatura_real }}°C</h2>
+                    </div>
+                </div>
+            </div>
 
-            <input
-                type="number"
-                name="temperatura"
-                required
-            >
+        </div>
 
-            <label>
-                Uso de RAM (%)
-            </label>
+        <!-- FORM -->
+        <form method="POST" class="mt-4">
 
-            <input
-                type="number"
-                name="ram"
-                required
-            >
+            <div class="card p-4 shadow">
 
-            <label>
-                Há travamentos?
-            </label>
+                <label>Computador está lento?</label>
+                <input type="text" name="lentidao" class="form-control" required>
 
-            <input
-                type="text"
-                name="travamentos"
-                required
-            >
+                <label>Há travamentos?</label>
+                <input type="text" name="travamentos" class="form-control" required>
 
-            <button type="submit">
-                ANALISAR SISTEMA
-            </button>
-
-        </form>
-
-        {% if resultado %}
-
-            <div class="resultado">
-
-                <h2>Resultado:</h2>
-
-                <p>{{ resultado }}</p>
-
-                <h2>Explicação:</h2>
-
-                <p>{{ explicacao }}</p>
+                <button type="submit" class="btn-tech">
+                    ANALISAR SISTEMA
+                </button>
 
             </div>
 
+        </form>
+
+        <!-- RESULTADO -->
+        {% if resultado %}
+        <div class="resultado shadow">
+
+            <h2>Resultado</h2>
+            <p>{{ resultado }}</p>
+
+            <h2>Explicação</h2>
+            <p>{{ explicacao }}</p>
+
+        </div>
         {% endif %}
 
     </div>
 
 </body>
+
 </html>

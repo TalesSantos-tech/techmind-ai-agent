@@ -1,4 +1,18 @@
-from flask import Flask, render_template, request
+from flask import (
+    Flask,
+    render_template,
+    request,
+    Response
+)
+
+import csv
+import io
+
+from monitoramento import (
+    obter_cpu,
+    obter_ram,
+    obter_temperatura_cpu
+)
 
 from diagnostico import (
     analisar_sistema,
@@ -22,12 +36,15 @@ def index():
 
     resultado = None
     explicacao = None
+    temperatura_real = obter_temperatura_cpu() or 0
+    cpu = obter_cpu()
+    ram_real = obter_ram()
 
     if request.method == "POST":
 
         lentidao = request.form["lentidao"]
-        temperatura = int(request.form["temperatura"])
-        ram = int(request.form["ram"])
+        temperatura = obter_temperatura_cpu()
+        ram = ram_real
         travamentos = request.form["travamentos"]
 
         resultado = analisar_sistema(
@@ -48,10 +65,13 @@ def index():
         )
 
     return render_template(
-        "index.html",
-        resultado=resultado,
-        explicacao=explicacao
-    )
+    "index.html",
+    resultado=resultado,
+    explicacao=explicacao,
+    cpu=cpu,
+    ram_real=ram_real,
+    temperatura_real=temperatura_real
+)
 
 @app.route("/historico")
 def historico():
@@ -73,6 +93,39 @@ def dashboard():
         "dashboard.html",
         estatisticas=estatisticas
     )
+@app.route("/exportar")
+def exportar():
+
+    dados = listar_historico()
+
+    arquivo = io.StringIO()
+
+    writer = csv.writer(arquivo)
+
+    writer.writerow([
+        "ID",
+        "Data",
+        "Temperatura",
+        "RAM",
+        "Travamentos",
+        "Diagnostico",
+        "Explicacao"
+    ])
+
+    for linha in dados:
+        writer.writerow(linha)
+
+    resposta = Response(
+        arquivo.getvalue(),
+        mimetype="text/csv"
+    )
+
+    resposta.headers[
+        "Content-Disposition"
+    ] = "attachment; filename=historico_techmind.csv"
+
+    return resposta
+
 @app.route("/cadastro", methods=["GET", "POST"])
 def cadastro():
 
