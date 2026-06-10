@@ -1,4 +1,3 @@
-from banco import conectar, criar_tabelas
 from flask import Flask, render_template, request
 
 from diagnostico import (
@@ -6,9 +5,17 @@ from diagnostico import (
     explicar_resultado
 )
 
-app = Flask(__name__)
-criar_tabelas()
+from banco import (
+    criar_tabelas,
+    salvar_diagnostico,
+    listar_historico,
+    obter_estatisticas,
+    gerar_grafico_diagnosticos
+)
 
+app = Flask(__name__)
+
+criar_tabelas()
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -32,12 +39,40 @@ def index():
 
         explicacao = explicar_resultado(resultado)
 
+        salvar_diagnostico(
+            temperatura,
+            ram,
+            travamentos,
+            resultado,
+            explicacao
+        )
+
     return render_template(
         "index.html",
         resultado=resultado,
         explicacao=explicacao
     )
 
+@app.route("/historico")
+def historico():
+
+    dados = listar_historico()
+
+    return render_template(
+        "historico.html",
+        dados=dados
+    )
+@app.route("/dashboard")
+def dashboard():
+
+    gerar_grafico_diagnosticos()
+
+    estatisticas = obter_estatisticas()
+
+    return render_template(
+        "dashboard.html",
+        estatisticas=estatisticas
+    )
 @app.route("/cadastro", methods=["GET", "POST"])
 def cadastro():
 
@@ -71,3 +106,4 @@ def cadastro():
 
 if __name__ == "__main__":
     app.run(debug=True)
+

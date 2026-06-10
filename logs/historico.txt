@@ -66,3 +66,25 @@ Isso pode causar:
         
 ==================================================
 
+==================================================
+Data: 09/06/2026 15:37:11
+Resultado: Possível malware
+Explicação: 
+Travamentos frequentes podem indicar:
+- vírus
+- malware
+- processos maliciosos
+        
+==================================================
+
+==================================================
+Data: 09/06/2026 23:46:03
+Resultado: Possível malware
+Explicação: 
+Travamentos frequentes podem indicar:
+- vírus
+- malware
+- processos maliciosos
+        
+==================================================
+

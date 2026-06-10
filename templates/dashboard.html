@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Dashboard TechMind</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+
+        <a class="navbar-brand" href="/">
+            🧠 TechMind
+        </a>
+
+        <div class="navbar-nav">
+
+            <a class="nav-link" href="/">
+                Diagnóstico
+            </a>
+
+            <a class="nav-link" href="/historico">
+                Histórico
+            </a>
+
+            <a class="nav-link" href="/dashboard">
+                Dashboard
+            </a>
+
+        </div>
+
+    </div>
+</nav>
+
+<div class="container mt-5">
+
+    <h1 class="text-center mb-4">
+        Dashboard TechMind
+    </h1>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="card text-center shadow">
+                <div class="card-body">
+                    <h5>Total</h5>
+                    <h2>{{ estatisticas.total }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-center shadow">
+                <div class="card-body">
+                    <h5>Problemas</h5>
+                    <h2>{{ estatisticas.problemas }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-center shadow">
+                <div class="card-body">
+                    <h5>Normais</h5>
+                    <h2>{{ estatisticas.normais }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-center shadow">
+                <div class="card-body">
+                    <h5>Mais Comum</h5>
+                    <h6>{{ estatisticas.mais_comum }}</h6>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card mt-5 shadow">
+
+        <div class="card-body">
+
+            <h3 class="text-center">
+                Diagnósticos Realizados
+            </h3>
+
+            <img
+                src="{{ url_for('static', filename='graficos/diagnosticos.png') }}"
+                class="img-fluid"
+            >
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

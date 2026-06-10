@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Histórico TechMind</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+
+            <a class="navbar-brand" href="/">
+            🧠 TechMind
+            </a>
+
+            <div class="navbar-nav">
+
+                <a class="nav-link" href="/">
+                Diagnóstico
+                </a>
+
+                <a class="nav-link" href="/historico">
+                Histórico
+                </a>
+
+                <a class="nav-link" href="/dashboard">
+                Dashboard
+                </a>
+
+            </div>
+
+        </div>
+    </nav>
+
+ <div class="container mt-5">
+
+    <h1 class="mb-4">
+        Histórico de Diagnósticos
+    </h1>
+
+    <table class="table table-striped table-hover">
+
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Data</th>
+                <th>Temperatura</th>
+                <th>RAM</th>
+                <th>Travamentos</th>
+                <th>Diagnóstico</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for item in dados %}
+
+            <tr>
+                <td>{{ item[0] }}</td>
+                <td>{{ item[1] }}</td>
+                <td>{{ item[2] }}</td>
+                <td>{{ item[3] }}</td>
+                <td>{{ item[4] }}</td>
+                <td>{{ item[5] }}</td>
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+
+</html>

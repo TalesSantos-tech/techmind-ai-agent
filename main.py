@@ -4,11 +4,20 @@ from diagnostico import (
     explicar_resultado
 )
 
+from banco import (
+    criar_tabelas,
+    salvar_diagnostico,
+    listar_historico
+)
+
 from colorama import Fore, Style, init
 from datetime import datetime
 import time
 
 init(autoreset=True)
+
+from banco import criar_tabelas
+criar_tabelas()
 
 
 def salvar_historico(resultado, explicacao):
@@ -67,6 +76,14 @@ while True:
 
         explicacao = explicar_resultado(resultado)
 
+        salvar_diagnostico(
+            temperatura,
+            ram,
+            travamentos,
+            resultado,
+            explicacao
+        )
+
         print("\n" + "=" * 50)
         print("           DIAGNÓSTICO FINAL")
         print("=" * 50)
@@ -98,29 +115,28 @@ nos sintomas informados pelo usuário.
     # HISTÓRICO
     elif opcao == "3":
 
+        historico = listar_historico()
+
         print(Fore.MAGENTA + "\n" + "=" * 50)
-        print(Fore.MAGENTA + "            HISTÓRICO")
+        print(Fore.MAGENTA + " HISTÓRICO DE DIAGNÓSTICOS ")
         print(Fore.MAGENTA + "=" * 50)
 
-        try:
+        if len(historico) == 0:
 
-            with open(
-                "logs/historico.txt",
-                "r",
-                encoding="utf-8"
-            ) as arquivo:
+            print("\nNenhum diagnóstico encontrado.")
 
-                conteudo = arquivo.read()
+        else:
 
-                if conteudo.strip() == "":
-                    print("\nNenhum histórico encontrado.")
+            for item in historico:
 
-                else:
-                    print(conteudo)
+                print("\nID:", item[0])
+                print("Data:", item[1])
+                print("Temperatura:", item[2])
+                print("RAM:", item[3])
+                print("Travamentos:", item[4])
+                print("Diagnóstico:", item[5])
 
-        except FileNotFoundError:
-            print("\nArquivo de histórico não encontrado.")
-
+                print("-" * 40)
         # MÉTRICAS
     elif opcao == "4":
 
